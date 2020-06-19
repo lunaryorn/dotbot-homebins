@@ -57,8 +57,10 @@ class Homebins(Plugin):
         to_install = [m for m in data['add'] if m not in installed_manifests]
         if to_install:
             run([str(self.homebins), 'install'] + to_install, check=True)
+            self._log.info('All binaries installed')
 
         if data.get('update', False):
             run([str(self.homebins), 'update'], check=True)
+            self._log.info('All binaries updated')
 
         return True
