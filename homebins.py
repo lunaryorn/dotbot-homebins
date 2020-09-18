@@ -54,10 +54,17 @@ class Homebins(Plugin):
         self._ensure_homebins()
 
         installed_manifests = self._get_installed_manifests()
-        to_install = [m for m in data['add'] if m not in installed_manifests]
+        to_install = [m for m in data.get(
+            'add', []) if m not in installed_manifests]
         if to_install:
             run([str(self.homebins), 'install'] + to_install, check=True)
             self._log.info('All binaries installed')
+
+        to_remove = [m for m in data.get(
+            'remove', []) if m in installed_manifests]
+        if to_remove:
+            run([str(self.homebins), 'remove'] + to_remove, check=True)
+            self._log.info('All binaries remove')
 
         if data.get('update', False):
             run([str(self.homebins), 'update'], check=True)
