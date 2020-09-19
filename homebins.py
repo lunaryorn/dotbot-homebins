@@ -12,8 +12,8 @@ from urllib.request import Request, urlopen
 
 from dotbot import Plugin
 
-VERSION = '0.0.4'
-CHECKSUM = '14e3e8a464c7b0148c334c491e6188185ec2b5f6017399410b78624182510de51d25aed59deb046503f4ba11b7316a8316503af597e657252f913025d56b9bb7'
+VERSION = '0.1.0'
+CHECKSUM = 'e66a88670da77852b781c3d31ceff58958eea70a6d9c2d933a591e05b0c54fb64ffbc416d46ee27e5203c37ffc8c3204c1d361bd692a68643a28a5acabf05a35'
 
 
 class Homebins(Plugin):
